@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');           
-            $table->string('referal_key')->unique();
+            $table->string('referral_key')->unique();
             $table->integer('start_position')->unsigned();
             $table->integer('role_type')->length(10)->default(2)->unsigned();
             $table->rememberToken();

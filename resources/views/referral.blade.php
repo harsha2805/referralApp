@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Success Page</title>
+    <title>Referral Page</title>
 </head>
 <body>
-    <div>
-        <h2>Data Saved Successfully!</h2>
-        <p>{{ $referralMessage }}</p>
-    </div>
+    <h2>Referral Link</h2>
+    <p>Share this referral link: {{ $referralLink }}</p>
 </body>
 </html>
