@@ -6,7 +6,7 @@ $('.btn').on('click', function () {
 
 var URL = 'http://gamer.com';
 
-$(document).ready(function(){
+$(document).ready(function () {
 
   $.ajaxSetup({
     headers: {
@@ -15,66 +15,77 @@ $(document).ready(function(){
   });
 
   //save new user
-  $('#signup').on('click', function(){
+  $('#signup').on('click', function () {
     $.ajax({
       method: 'POST',
       url: URL + '/signup',
       dataType: 'json',
-      timeout: 500,
-      data:{ 
+      //timeout: 500,
+      data: {
         'email': $('#email').val(),
         'password': $('#password').val(),
         'referralKey': $('#referral_key').val()
       },
-      success: function (data,status,xhr) {
+      success: function (data, status, xhr) {
         $('form').hide();
 
-        if(data.referralUrl){
+        if (data.referralUrl) {
           $('#referral-url').text(data.referralUrl);
           $('#success-section').show();
-        }else{
+          //Enables url sharing in social media
+          createSharer(data);
+
+        } else {
           $('#error-message').text(data.error);
           $('#error-section').show();
         }
       },
       error: function (jqXhr, textStatus, errorMessage) {
-       // $('.form').addClass('form--no');
+        // $('.form').addClass('form--no');
         $('.form').addClass('error');
         var response = jqXhr.responseJSON;
-        if(response.errors){
-          $.each(response.errors, function(element, error){
-            showError(element,error);
+        if (response.errors) {
+          $.each(response.errors, function (element, error) {
+            showError(element, error);
           })
         }
       }
     });
-    
+
+    function createSharer(data) {
+      var referralUrl = data.referralUrl;
+      $('.button').attr('data-url', function (index, originalUrl) {
+        return originalUrl.replace('referral_url_placeholder', referralUrl);
+      });
+    }
+
   });
 
-
- $('input').on('change paste keyup click', function(){
-  if($('form').hasClass('error')){
-    $('.form').removeClass('error');
-    //$('.form').removeClass('form--no');
-    hideErrors();
-  }
- });
-
+  $('input').on('change paste keyup click', function () {
+    var elementId = $(this).attr('id');
+    if ($('#' + elementId).hasClass('error')) {
+      $('#' + elementId).removeClass('error');
+      //$('.form').removeClass('form--no');
+      hideErrors(elementId);
+    }
+  });
 });
 
-function showError(elm, error){
-  $('#'+elm).css('color', 'red');
-  $('#'+elm).val(error);
-  $('#'+elm).addClass('error');
-  
-  if(elm == 'password'){
-    $('#'+elm).attr('type', 'text');
+function showError(elm, error) {
+  $('#' + elm).css('color', 'red');
+  $('#' + elm).val(error);
+  $('#' + elm).addClass('error');
+
+  if (elm == 'password') {
+    $('#' + elm).attr('type', 'text');
   }
- 
+
 }
 
-function hideErrors(){
-  $('input').val('').css('color', 'black');
-  $('#password').attr('type', 'password');
-  $('input').removeClass('error');
+function hideErrors(id) {
+  $('#' + id).val('').css('color', 'black');
+  if (id === 'password') {
+    $('#' + id).attr('type', 'password');
+    $('#' + id).removeClass('error');
+  }
 }
