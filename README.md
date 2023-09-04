@@ -18,15 +18,15 @@ I recommend installing and defining 7zip in the system variables
 
 1. Clone this repository to your local machine:
 
-	git clone https://github.com/harsha2805/gamer.git
+	    git clone https://github.com/harsha2805/gamer.git
 
 2. Navigate to the project directory:
 
-	cd gamer-waitlist
+	    cd gamer-waitlist
 
 3. Install required dependencies using Composer:
 
-	composer install
+	    composer install
 
 4. Update the .env file:
 
@@ -40,9 +40,9 @@ I recommend installing and defining 7zip in the system variables
 
 7. Run database migrations and seed the database:
 
-	php artisan migrate
+	    php artisan migrate
 
-	php artisan db:seed --class = AdminUserSeeder
+	    php artisan db:seed --class = AdminUserSeeder
 
 ## To run the application:
 
