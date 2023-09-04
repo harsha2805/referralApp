@@ -119,6 +119,55 @@ body {
     font-weight: bold;
 }
 
+table {
+    width: 800px;
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+    margin: 0 auto;
+    margin-top: 150px;
+}
+th,
+td {
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0);
+    color: #fff;
+}
+
+th {
+    text-align: left;
+}
+
+thead th {
+    background-color: rgba(0, 121, 126, 0.59) !important;
+}
+thead tr {
+    border-bottom: 1px solid greenyellow;
+}
+tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+tbody td {
+    position: relative;
+}
+
+tbody td:hover:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -9999px;
+    bottom: -9999px;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: -1;
+}
+
+.page-item.active .page-link {
+    background-color: #00797e96 !important;
+    border-color: #00797e96 !important;
+}
+
 .share-buttons {
     text-align: center;
     margin: 20px 0;
@@ -145,6 +194,24 @@ body {
 .button + .button {
     margin-left: 10px;
 }
+
+.info {
+    border-radius: 5px;
+    background: #f3f3f3;
+    padding: 20px;
+    width: 40%;
+    height: 100px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.redirect-link {
+    text-align: center;
+    display: block;
+    padding-top: 15px;
+}
+
+
 
 @-webkit-keyframes NO {
     from,

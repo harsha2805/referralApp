@@ -38,8 +38,11 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
     
-    public function referrer()
-    {
+    public function referrer(){
         return $this->hasMany(Referrer::class, 'referrer_id');
+    }
+
+    public function isAdmin(){
+        return $this->role_type == USER_ROLES['ADMIN'] ? true : false;
     }
 }

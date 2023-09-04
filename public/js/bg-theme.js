@@ -13,9 +13,14 @@ $(document).ready(function () {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
   });
-
+  $(document).keypress(function (event) {
+    var keycode = (event.keyCode ? event.keyCode : event.which);
+    if (keycode == 13 || keycode == 10) {
+      $('#signup').trigger('click');
+    }
+  });
   //save new user
-  $('#signup').on('click', function () {
+  $('#btnSignup').on('click', function () {
     $.ajax({
       method: 'POST',
       url: URL + '/signup',
@@ -61,7 +66,8 @@ $(document).ready(function () {
 
   });
 
-  $('input').on('change paste keyup click', function () {
+
+  $('.auth-form input').on('change paste keyup click', function () {
     var elementId = $(this).attr('id');
     if ($('#' + elementId).hasClass('error')) {
       $('#' + elementId).removeClass('error');
@@ -89,3 +95,33 @@ function hideErrors(id) {
     $('#' + id).removeClass('error');
   }
 }
+
+ //login the user
+ $('#btnLogin').on('click', function(){
+  $.ajax({
+    method: 'POST',
+    url: URL + '/login',
+    dataType: 'json',
+    data:{ 
+      'email': $('#email').val(),
+      'password': $('#password').val()
+    },
+    success: function (data,status,xhr) {
+      if(data.error != undefined){
+        alert(data.error);
+      }else if(data.redirect != undefined){
+        window.location = data.redirect;
+      }
+    },
+    error: function (jqXhr, textStatus, errorMessage) {
+      var response = jqXhr.responseJSON;
+      if(response.errors){
+        $.each(response.errors, function(element, error){
+          showError(element,error);
+        })
+      }
+    }
+  });
+  
+});
+
