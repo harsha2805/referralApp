@@ -34,6 +34,15 @@ return [
     */
 
     'mailers' => [
+        
+        // start mailtrap transport
+        'mailtrap' => [
+            'transport' => 'mailtrap'
+        ],
+        // end mailtrap transport
+        'sendinblue'=>[
+            'transport' => 'sendinblue'
+        ],
         'smtp' => [
             'transport' => 'smtp',
             'url' => env('MAIL_URL'),
