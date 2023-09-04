@@ -17,7 +17,7 @@
             <input type="password" id="password" name="password" placeholder="Password" class="form__input" />
         </div>
 
-        <button id="btnSignup" class="btn" type="button" onclick="return false;">Sign Up</button>
+        <button id="btnSignup" class="btn" type="button" >Sign Up</button>
         <input type="hidden" id="referral_key" name="referral_key" value="{{ $referralKey }}">
         <a href="{{ route('login') }}" class="redirect-link">{{__('messages.login_link')}}</a>
     </form>
