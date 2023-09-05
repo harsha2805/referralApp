@@ -55,3 +55,31 @@ I recommend installing and defining 7zip in the system variables
 	Admin Role User:
 		UserName->admin@gamerwaitlist.com
 		Password->admin*!123
+  # Features:
+
+	-> Login/Signup
+ 
+    -> Admin Page: Admins can view and delete users.
+    
+	-> User Page: Users can see their current position and share the URL through WhatsApp, Facebook, Twitter, Telegram.
+
+
+Signup Page:
+
+    ![image](https://github.com/harsha2805/gamer/assets/96760251/2e2924b1-94f6-4dde-8118-358c6c3beeb8)
+NewUserPage:
+
+    ![image](https://github.com/harsha2805/gamer/assets/96760251/b7c28cda-3c77-4abd-b705-cdb3399676de)
+LoginPage:
+
+    ![image](https://github.com/harsha2805/gamer/assets/96760251/1f471025-2bb8-44d9-9ef2-bcba15b37557)
+
+AdminPage:
+
+    ![image](https://github.com/harsha2805/gamer/assets/96760251/9f2ceb8c-e4e5-454c-9bde-945740470a46)
+UserPage:
+
+    ![image](https://github.com/harsha2805/gamer/assets/96760251/259a405b-d38c-4247-bedd-41d0369c2f9f)
+
+
+
