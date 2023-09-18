@@ -1,6 +1,11 @@
 # Gamer Waitlist
 
-Gamer Waitlist is an application that helps potential customers sign up for a waiting list for a new iPhone product.
+Gamer Waitlist is an application that helps potential customers sign up for a waiting list for a new product.
+- The first user starts at position 1, the next at position 100, the next at 101, and so on...
+- If a new user signs up using his referral code, the parent user will move up one position.
+- If a user reaches position 1, he will be emailed a coupon code.
+- The administrator has the ability to view and delete users.
+
 
 ## Requirements
 
