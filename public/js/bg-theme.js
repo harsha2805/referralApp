@@ -96,32 +96,32 @@ function hideErrors(id) {
   }
 }
 
- //login the user
- $('#btnLogin').on('click', function(){
+//login the user
+$('#btnLogin').on('click', function () {
   $.ajax({
     method: 'POST',
     url: URL + '/login',
     dataType: 'json',
-    data:{ 
+    data: {
       'email': $('#email').val(),
       'password': $('#password').val()
     },
-    success: function (data,status,xhr) {
-      if(data.error != undefined){
+    success: function (data, status, xhr) {
+      if (data.error != undefined) {
         alert(data.error);
-      }else if(data.redirect != undefined){
+      } else if (data.redirect != undefined) {
         window.location = data.redirect;
       }
     },
     error: function (jqXhr, textStatus, errorMessage) {
       var response = jqXhr.responseJSON;
-      if(response.errors){
-        $.each(response.errors, function(element, error){
-          showError(element,error);
+      if (response.errors) {
+        $.each(response.errors, function (element, error) {
+          showError(element, error);
         })
       }
     }
   });
-  
+
 });
 

@@ -37,12 +37,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-    
-    public function referrer(){
+
+    public function referrer()
+    {
         return $this->hasMany(Referrer::class, 'referrer_id');
     }
 
-    public function isAdmin(){
+    public function isAdmin()
+    {
         return $this->role_type == USER_ROLES['ADMIN'] ? true : false;
     }
 }
