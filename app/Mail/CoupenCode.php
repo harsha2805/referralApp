@@ -29,7 +29,6 @@ class CoupenCode extends Mailable
      */
     public function envelope(): Envelope
     {
-      
         return new Envelope(
             from: new Address(env('MAIL_USERNAME')),
             subject: 'Coupon Code!',
