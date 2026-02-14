@@ -66,3 +66,6 @@ I recommend installing and defining 7zip in the system variables
     - User Page: Users can see their current position and share the URL through WhatsApp, Facebook, Twitter, Telegram.
     - You can use Telescope to see what requests your application receives, database queries, and more.
         Here's how to install it: https://laravel.com/docs/10.x/telescope
+
+
+        THIS IS MY FIRST PROJECT
